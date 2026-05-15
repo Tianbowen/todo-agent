@@ -1,0 +1,12 @@
+<Project>
+    <PropertyGroup>
+        <!-- 所有项目统一：.Net8 -->
+        <TargetFramework>net8.0-windows</TargetFramework>
+        <!-- 所有项目统一：启用可空引用类型 -->
+        <Nullable>enable</Nullable>
+        <!-- 所有项目统一：最新C#语言版本 -->
+        <LangVersion>latest</LangVersion>
+        <!-- 所有项目统一：允许Windows特定API(WPF需要) -->
+        <UseWindowsForms>true</UseWindowsForms>
+    </PropertyGroup>
+</Project>
