@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TodoAgent.Learning.Core.Configuration;
 
 namespace TodoAgent.Learning.Core.Factory
 {
@@ -16,11 +17,15 @@ namespace TodoAgent.Learning.Core.Factory
     public class DeepSeekClientFactory
     {
 
-        public static void CreateDeepSeekClient()
+        public static IChatClient Create(DeepSeekConfig config)
         {
-            var options = new OpenAIClientOptions();
-            var client = new OpenAIClient(new ApiKeyCredential(""), options);
-            var chatClient = client.GetChatClient("").AsIChatClient();
+            var options = new OpenAIClientOptions()
+            {
+                Endpoint = new Uri(config.Endpoint)
+            };
+            var client = new OpenAIClient(new ApiKeyCredential(config.ApiKey), options);
+            var chatClient = client.GetChatClient(config.ModelId).AsIChatClient();
+            return chatClient;
         }
     }
 }

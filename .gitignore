@@ -418,3 +418,6 @@ FodyWeavers.xsd
 *.msp
 
 src/Todo-Solution/TBW.Todo.Agent/appsettings.development.json
+
+# App settings with secrets - use appsettings.template.json instead
+**/appsettings.Development.json
